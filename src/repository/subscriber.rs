@@ -9,14 +9,14 @@ lazy_static! {
     static ref SUBSCRIBERS: DashMap<String, DashMap<String, Subscriber>> = DashMap::new();
 }
 
-impl SubscriberRepository{
+impl SubscriberRepository {
     pub fn add(product_type: &str, subscriber: Subscriber) -> Subscriber {
         let subscriber_value = subscriber.clone();
         if SUBSCRIBERS.get(product_type).is_none() {
             SUBSCRIBERS.insert(String::from(product_type), DashMap::new());
         };
-        SUBSCRIBERS.get(product_type).unwrap();
-        insert(subscriber_value.url.clone(), subscriber_value);
+        SUBSCRIBERS.get(product_type).unwrap()
+            .insert(subscriber_value.url.clone(), subscriber_value);
         return subscriber;
     }
 
@@ -27,6 +27,7 @@ impl SubscriberRepository{
         return SUBSCRIBERS.get(product_type).unwrap().iter()
             .map(|f| f.value().clone()).collect();
     }
+
 
     pub fn delete(product_type: &str, url: &str) -> Option<Subscriber> {
         if SUBSCRIBERS.get(product_type).is_none() {
@@ -39,19 +40,4 @@ impl SubscriberRepository{
         }
         return None;
     }
-}
-
-
-
-
-pub fn delete(product_type: &str, url: &str) -> Option<Subscriber> {
-    if SUBSCRIBERS.get(product_type).is_none() {
-        SUBSCRIBERS.insert(String::from(product_type), DashMap: :new());
-    };
-    let result = SUBSCRIBERS.get(product_type).unwrap()
-        .remove(urL);
-    if !result.is_none() {
-        return Some(result.unwrap().1);
-    }
-    return None;
 }
