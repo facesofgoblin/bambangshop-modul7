@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [DONE] Commit: `Implement delete function in Subscriber repository.`
     -   [DONE] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [DONE] Commit: `Create Notification service struct skeleton.`
+    -   [DONE] Commit: `Implement subscribe function in Notification service.`
+    -   [DONE] Commit: `Implement subscribe function in Notification controller.`
+    -   [DONE] Commit: `Implement unsubscribe function in Notification service.`
+    -   [DONE] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [DONE] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -85,5 +85,12 @@ This is the place for you to write reflections:
 <br>Based on what i've read, we prefer DashMap over a regular HashMap because DashMap is specifically designed for multithreading environments. In our BambangShop application, which uses multithreading, the SUBSCRIBERS map needs to handle access from multiple threads simultaneously. As for using a Singleton, it helps guarantee that throughout the application’s runtime, there’s only one instance of the object. This ensures that our subscriber list is consistently maintained in one DashMap and isn't dispersed across different data structures.</br>
 
 #### Reflection Publisher-2
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+<br>To adhere to the single responsibility principle, it's better to separate Service from Repository. The reason is service handles data retrieval and processing, while Repository accesses, modifies, and deletes database contents. This separation enhances code development and maintainability<br>
+2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+<br>Relying solely on the model layer leads to high coupling, this will lead to extra code changes with any alterations.</br>
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+<br>Postman is important for testing applications, ensuring responses align with expectations based on requests. It allows customization of methods like CRUD to verify data accuracy.</br>
+
 
 #### Reflection Publisher-3
